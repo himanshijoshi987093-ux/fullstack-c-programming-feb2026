@@ -3,63 +3,88 @@
 void createaccount();
 void Deposit();
 void withdraw();
-void checkblance();
+void checkbalance();
 void accountcreatedsuccessfully();
 void choiceno();
-int verifyNumberInstring(char stringdatap[11]);
-int totalblance;
-char MainAccount[11];
+int verifyNumberInstring(char stringdatap[12]);
+
+int totalbalance = 0;
+char mainAccount[12];
+char name [50]; 
+int accountCreated = 0 ;
 
 int main()
 
 {
 
     int choiceno;
-printf("#########Banking Management System ###########\n");
+    do
+    {
+        printf ("\n *****###### welcome to Banking System ######*****\n");
+        printf("1. Create Account \n");
+        printf("2. Deposit \n");
+        printf("3. Withdraw \n");
+        printf("4.Check Balance  \n");
+        printf("5. Exit \n");
 
- printf("1. Create account:");
- Printf("2.Withdraw amount:");
- printf("3.Deposit Amount:");
- printf("4.Check Blance:");
- peintf("5.Exit");
+        printf(" Enter the choice number:");
+        scanf("%d",&choiceno);
+
+        switch(choiceno)
+        {
+            case 1:
+            createaccount();
+            break;
+            case 2:
+            Deposit();
+            break;
+            case 3: 
+            withdraw();
+            break;
+            case 4:
+            checkbalance();
+            break;
+            case 5: 
+            printf(" Thank You to Open your account our bank!\n");
+            default:choiceno;
+            printf("Please enter correct choiceno:");
+
+            while(choiceno !=5);
+        }
+        void createaccount()
+        {
+            printf(" Enter the only 11 digit for Account number:");
+            scanf("%s", &mainAccount);
+            if(strlen(mainAccount)!= 11 || ! verifyNumberInstring(mainAccount))
+            {
+                printf(" Error : Plese enter  account number agin (account no should be 11 digit)");
+                return;
+            }
+
+            printf(" Plese enter account holer name:");
+            scanf("[^\n]",name);
+            printf(" Enter Opening Balance (minimum amount 500):");
+            scanf(" %d",&totalbalance);
+            
+
+        }
+    
+
+        retur 0;
+        
+        
+
+        
+    } 
+    
+ 
 
 
-do 
-{
 
-    printf("\n Please enter any choiceno number for account:\n");
-    scanf("%d",& choiceno);
 
-    switch (choiceno)
-{
-    case 1:
-    createaccount();
-    printf("\nplease enter the 11 digit number for create user account number:");
-    scanf("%d",&verifyNumberInstring);
-    break;
-    case 2:
-    Deposit();
 
-    break;
-    case 3:
-    withdraw();
-    break;
 
-    case 4:
-    checkblance();
 
-    break;
-    case 5:
-    accountcreatedsuccessfully();
-    break;
-
-    default:
-    printf(" \nError: please enter correct choise number");
-
-}
-
-}
-
-return 0;
+ 
 
 }
